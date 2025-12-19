@@ -76,7 +76,7 @@ del.addEventListener('click', function() {
         if (secondNum === '') {
             lastOperator = '';
             isActing = false;
-            updateScreen()
+            updateScreen();
             return;
         }
         secondNum = secondNum.split('').slice(0, -1).join('');
@@ -84,12 +84,12 @@ del.addEventListener('click', function() {
     else {
         currentNum = currentNum.split('').slice(0, -1).join('');
     }
-    updateScreen()
+    updateScreen();
 })
 function updateScreen() {
     if (isActing) {
         if (secondNum === '') {
-            number.textContent = `${Number(currentNum)} ${lastOperator}`
+            number.textContent = `${Number(currentNum)} ${lastOperator}`;
             return;
         }
         number.textContent = `${Number(currentNum)} ${lastOperator} ${secondNum.includes('.') ? secondNum : Number(secondNum)}`;
