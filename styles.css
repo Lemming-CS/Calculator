@@ -63,24 +63,33 @@ button, .number.zero, .act{
     font-family: 'Chewy';
 }
 
-.number, .act{
+.number:hover {
+    background-color: rgba(53, 97, 82, 0.795);
+}
+.number, .act, #delete{
     width: 70px;
 }
-#delete {
-    width: 70px;
-    background-color: rgba(196, 82, 82, 0.76);
-}
-#clear{
-    flex: 1;
+
+.clear {
     background-color: rgba(196, 82, 82, 0.76);
 }
 
-.number.zero{
+#clear, .number.zero{
     flex: 1;
 }
-.act {
-    background-color: rgba(82, 114, 196, 0.76);
+
+.clear:hover {
+    background-color: rgba(136, 60, 60, 0.76);
 }
+
+.act {
+    background-color:rgba(82, 114, 196, 0.76);
+}
+
+.act:hover {
+    background-color: rgba(60, 84, 145, 0.76);
+}
+
 .row {
     display: flex;
 }
