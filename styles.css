@@ -6,8 +6,10 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 100px;
+    gap:100px;
     background-color: #553428d2;
+    padding: 0;
+    text-align: center;
 }
 
 .container {
@@ -20,6 +22,14 @@ body {
     width: 335px;
 }
 
+.header {
+    background-color: #721b1bdc;
+    width: 100%;
+}
+h1 {
+    font-family: 'Chewy';
+    color: wheat;
+}
 .screen {
     width: 100%;
     height: 100px;
