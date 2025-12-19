@@ -23,6 +23,7 @@ numbers.forEach( button => {
             temp = Number(event.target.id);
         }
         if (isActing) {
+            if (!secondNum.includes('.')) secondNum = String(Number(secondNum))
             secondNum = secondNum + String(temp);
         }
         else {
@@ -72,6 +73,12 @@ clear.addEventListener('click', function() {
 
 del.addEventListener('click', function() {
     if (isActing) {
+        if (secondNum === '') {
+            lastOperator = '';
+            isActing = false;
+            updateScreen()
+            return;
+        }
         secondNum = secondNum.split('').slice(0, -1).join('');
     }
     else {
@@ -81,6 +88,10 @@ del.addEventListener('click', function() {
 })
 function updateScreen() {
     if (isActing) {
+        if (secondNum === '') {
+            number.textContent = `${Number(currentNum)} ${lastOperator}`
+            return;
+        }
         number.textContent = `${Number(currentNum)} ${lastOperator} ${secondNum.includes('.') ? secondNum : Number(secondNum)}`;
     }
     else {
