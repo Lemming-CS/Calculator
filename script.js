@@ -1,7 +1,8 @@
 let acts = document.querySelectorAll(".act");
 let numbers = document.querySelectorAll(".number");
 let screen = document.querySelector(".screen");
-let clear = document.querySelector(".clear");
+let clear = document.querySelector("#clear");
+let del = document.querySelector("#delete")
 let number = document.createElement("span")
 let temp, secondNum = '';
 let currentNum = '';
@@ -76,6 +77,15 @@ clear.addEventListener('click', function() {
     updateScreen();
 })
 
+del.addEventListener('click', function() {
+    if (isActing) {
+        secondNum = secondNum.split('').slice(0, -1).join('');
+    }
+    else {
+        currentNum = currentNum.split('').slice(0, -1).join('');
+    }
+    updateScreen()
+})
 function updateScreen() {
     if (isActing) {
         number.textContent = `${Number(currentNum)} ${lastOperator} ${isFloating ? secondNum : Number(secondNum)}`;

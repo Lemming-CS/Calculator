@@ -66,8 +66,12 @@ button, .number.zero, .act{
 .number, .act{
     width: 70px;
 }
-
-.clear{
+#delete {
+    width: 70px;
+    background-color: rgba(196, 82, 82, 0.76);
+}
+#clear{
+    flex: 1;
     background-color: rgba(196, 82, 82, 0.76);
 }
 
