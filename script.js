@@ -8,18 +8,16 @@ let temp, secondNum = '';
 let currentNum = '';
 let isActing = false;
 let lastOperator = '';
-let isFloating = false;
 
 screen.appendChild(number)
 
 numbers.forEach( button => {
     button.addEventListener("click", function(event) {
         if (event.target.id === '.') {
-            if (isFloating) {
+            if ((isActing && secondNum.includes('.')) || (!isActing && currentNum.includes('.'))) {
                 return;
             }
-            temp = event.target.id;
-            isFloating = true;   
+            temp = event.target.id; 
         }
         else {
             temp = Number(event.target.id);
@@ -41,31 +39,26 @@ acts.forEach( act => {
             case '+':
                 lastOperator = '+';
                 isActing = true;
-                isFloating = false;
                 updateScreen();
                 break;
             case '-':
                 lastOperator = '-';
                 isActing = true;
-                isFloating = false;
                 updateScreen();
                 break;
             case '*':
                 lastOperator = '*';
                 isActing = true;
-                isFloating = false;
                 updateScreen();
                 break;
             case '/':
                 lastOperator = '/';
                 isActing = true;
-                isFloating = false;
                 updateScreen();
                 break;
             case '=':
                 isActing = false;
                 lastOperator = '';
-                isFloating = false;
                 updateScreen();
                 currentNum = '';
                 break;
@@ -73,7 +66,7 @@ acts.forEach( act => {
     })
 })
 clear.addEventListener('click', function() {
-    currentNum = '', secondNum = '', isActing = false, isFloating = false;
+    currentNum = '', secondNum = '', isActing = false;
     updateScreen();
 })
 
@@ -88,7 +81,7 @@ del.addEventListener('click', function() {
 })
 function updateScreen() {
     if (isActing) {
-        number.textContent = `${Number(currentNum)} ${lastOperator} ${isFloating ? secondNum : Number(secondNum)}`;
+        number.textContent = `${Number(currentNum)} ${lastOperator} ${secondNum.includes('.') ? secondNum : Number(secondNum)}`;
     }
     else {
         number.textContent = `${currentNum}`;
