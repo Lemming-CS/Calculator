@@ -2,14 +2,14 @@ let acts = document.querySelectorAll(".act");
 let numbers = document.querySelectorAll(".number");
 let screen = document.querySelector(".screen");
 let clear = document.querySelector("#clear");
-let del = document.querySelector("#delete")
-let number = document.createElement("span")
+let del = document.querySelector("#delete");
+let number = document.createElement("span");
 let temp, secondNum = '';
 let currentNum = '';
 let isActing = false;
 let lastOperator = '';
 
-screen.appendChild(number)
+screen.appendChild(number);
 
 numbers.forEach( button => {
     button.addEventListener("click", function(event) {
